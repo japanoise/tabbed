@@ -43,6 +43,8 @@ static Key keys[] = {
 
 	{ MODKEY,               XK_Page_Down, rotate,      { .i = +1 } },
 	{ MODKEY,               XK_Page_Up,   rotate,      { .i = -1 } },
+	{ MODKEY|ShiftMask,     XK_Page_Down, movetab,     { .i = +1 } },
+	{ MODKEY|ShiftMask,     XK_Page_Up,   movetab,     { .i = -1 } },
 
 	{ MODKEY|ShiftMask,     XK_l,      rotate,      { .i = +1 } },
 	{ MODKEY|ShiftMask,     XK_h,      rotate,      { .i = -1 } },
