@@ -53,15 +53,15 @@ dist: clean
 	rm -rf ${NAME}-${VERSION}
 
 install: all
-	${BSD_INSTALL_PROGRAM_DIR} ${DESTDIR}${PREFIX}/bin
-	${BSD_INSTALL_PROGRAM} ${BIN} ${DESTDIR}${PREFIX}/bin
-	${BSD_INSTALL_MAN_DIR} ${DESTDIR}${MANPREFIX}/man1
+	mkdir -p ${DESTDIR}${PREFIX}/bin
+	install ${BIN} ${DESTDIR}${PREFIX}/bin
+	mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	sed "s/VERSION/${VERSION}/g" < tabbed.1 > tabbed.1.tmp
 	mv tabbed.1.tmp tabbed.1
-	${BSD_INSTALL_MAN} tabbed.1 ${DESTDIR}${MANPREFIX}/man1
+	cp tabbed.1 ${DESTDIR}${MANPREFIX}/man1
 	sed "s/VERSION/${VERSION}/g" < xembed.1 > xembed.1.tmp
 	mv xembed.1.tmp xembed.1
-	${BSD_INSTALL_MAN} xembed.1 ${DESTDIR}${MANPREFIX}/man1
+	cp xembed.1 ${DESTDIR}${MANPREFIX}/man1
 
 uninstall:
 	# removing executable files.
